@@ -82,6 +82,12 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         return foodtrucks
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let foodtruckDetailVC = segue.destination as! FoodtruckDetailViewController
+        let indexPath = tableView.indexPathForSelectedRow!
+        foodtruckDetailVC.foodtruck = self.foodtrucks[indexPath.row]
+    }
 
 }
 
