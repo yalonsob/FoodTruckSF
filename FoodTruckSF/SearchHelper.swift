@@ -15,7 +15,7 @@ class SearchHelper {
         if searchString == "" {
             return foodtrucks
         } else {
-            return [foodtrucks[0], foodtrucks[1]]
+            return [foodtrucks[0], foodtrucks[2]]
         }
     }
 }

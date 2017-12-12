@@ -19,13 +19,16 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
 
-    override func viewDidLoad() {
-        
+    override func viewWillAppear(_ animated: Bool) {
         self.foodtrucks = self.appDelegate.foodtrucks
         self.searchString = self.appDelegate.searchString
         self.searchedFoodtrucks = self.appDelegate.searchedFoodtrucks
         
         searchBar.text = self.searchString
+        self.tableView.reloadData()
+    }
+    
+    override func viewDidLoad() {
         
         let url = URL(string: "https://data.sfgov.org/resource/6a9r-agq8.json?status=APPROVED")!
         
@@ -55,7 +58,9 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print(searchText)
         self.appDelegate.searchString = searchText
-        
+        self.searchedFoodtrucks = SearchHelper.filterFoodtrucks(foodtrucks: self.foodtrucks, searchString: searchText)
+        self.appDelegate.searchedFoodtrucks = self.searchedFoodtrucks
+        self.tableView.reloadData()
         
     }
     

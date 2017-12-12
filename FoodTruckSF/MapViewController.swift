@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, UISearchBarDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var label: UILabel!
@@ -21,15 +21,26 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //searchBar.text = self.searchString
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         self.foodtrucks = self.appDelegate.foodtrucks
         self.searchString = self.appDelegate.searchString
         self.searchedFoodtrucks = self.appDelegate.searchedFoodtrucks
         
         searchBar.text = self.searchString
+    
+        label.text = String(searchedFoodtrucks.count)
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print(searchText)
+        self.appDelegate.searchString = searchText
+        self.searchedFoodtrucks = SearchHelper.filterFoodtrucks(foodtrucks: self.foodtrucks, searchString: searchText)
+        self.appDelegate.searchedFoodtrucks = self.searchedFoodtrucks
         
-        label.text = String(foodtrucks.count)
+        //Repaint map
+        label.text = String(searchedFoodtrucks.count)
     }
     
 }
