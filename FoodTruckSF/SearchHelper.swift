@@ -9,7 +9,6 @@
 import Foundation
 
 class SearchHelper {
-    private init(){}
     
     static func filterFoodtrucks(foodtrucks: [Foodtruck], searchString: String) -> [Foodtruck] {
         if searchString == "" {

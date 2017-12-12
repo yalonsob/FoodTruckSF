@@ -216,28 +216,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eD9-Ck-5vo">
-                                <rect key="frame" x="103" y="118" width="168" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tk4-Zj-Plj">
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="tk4-Zj-Plj">
                                 <rect key="frame" x="0.0" y="20" width="375" height="56"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="rbi-xa-C6V" id="gj5-0G-AO6"/>
                                 </connections>
                             </searchBar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="riA-wv-UUU">
+                                <rect key="frame" x="0.0" y="76" width="375" height="542"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="riA-wv-UUU" firstAttribute="top" secondItem="tk4-Zj-Plj" secondAttribute="bottom" id="3KG-xm-IIL"/>
+                            <constraint firstItem="riA-wv-UUU" firstAttribute="top" secondItem="tk4-Zj-Plj" secondAttribute="bottom" id="6be-fL-N7H"/>
+                            <constraint firstItem="tk4-Zj-Plj" firstAttribute="leading" secondItem="unO-ED-uEI" secondAttribute="leading" id="8nL-Mf-aoD"/>
+                            <constraint firstItem="tk4-Zj-Plj" firstAttribute="top" secondItem="unO-ED-uEI" secondAttribute="top" id="Ec5-7j-reN"/>
+                            <constraint firstItem="tk4-Zj-Plj" firstAttribute="trailing" secondItem="unO-ED-uEI" secondAttribute="trailing" id="Xu1-9D-RsD"/>
+                            <constraint firstItem="riA-wv-UUU" firstAttribute="trailing" secondItem="unO-ED-uEI" secondAttribute="trailing" id="hxu-01-9ow"/>
+                            <constraint firstItem="riA-wv-UUU" firstAttribute="bottom" secondItem="unO-ED-uEI" secondAttribute="bottom" id="lQg-Fd-hxG"/>
+                            <constraint firstItem="riA-wv-UUU" firstAttribute="leading" secondItem="unO-ED-uEI" secondAttribute="leading" id="paA-nm-vUE"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="unO-ED-uEI"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="map.png" id="thQ-rc-bC5"/>
                     <connections>
-                        <outlet property="label" destination="eD9-Ck-5vo" id="rE1-26-pAk"/>
+                        <outlet property="map" destination="riA-wv-UUU" id="rp4-SM-teY"/>
                         <outlet property="searchBar" destination="tk4-Zj-Plj" id="oJS-9w-O3k"/>
                     </connections>
                 </viewController>
