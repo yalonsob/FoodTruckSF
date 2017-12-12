@@ -16,6 +16,7 @@ class MapViewController: UIViewController, UISearchBarDelegate, CLLocationManage
     @IBOutlet weak var map: MKMapView!
     
     let manager = CLLocationManager()
+    var region: MKCoordinateRegion!
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
     var foodtrucks: [Foodtruck]!
     var searchString: String!
@@ -38,6 +39,13 @@ class MapViewController: UIViewController, UISearchBarDelegate, CLLocationManage
         self.searchedFoodtrucks = self.appDelegate.searchedFoodtrucks
         
         searchBar.text = self.searchString
+        
+        if self.region != nil {
+            map.setRegion(region, animated: true)
+        }
+        
+        map.removeAnnotations(map.annotations)
+        addMapAnnotations()
     
     }
     
@@ -47,6 +55,8 @@ class MapViewController: UIViewController, UISearchBarDelegate, CLLocationManage
         self.appDelegate.searchedFoodtrucks = self.searchedFoodtrucks
         
         //Repaint map
+        map.removeAnnotations(map.annotations)
+        addMapAnnotations()
         
     }
     
@@ -56,9 +66,22 @@ class MapViewController: UIViewController, UISearchBarDelegate, CLLocationManage
         let span: MKCoordinateSpan = MKCoordinateSpanMake(0.03, 0.03)
         let myLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
         let region: MKCoordinateRegion = MKCoordinateRegionMake(myLocation, span)
+        self.region = region
         map.setRegion(region, animated: true)
         
         self.map.showsUserLocation = true
+    }
+    
+    private func addMapAnnotations() {
+        for i in 0..<searchedFoodtrucks.count {
+            let foodtruck = searchedFoodtrucks[i]
+            let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(foodtruck.latitude, foodtruck.longitude)
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = location
+            annotation.title = foodtruck.company
+            annotation.subtitle = foodtruck.dayshours
+            map.addAnnotation(annotation)
+        }
     }
     
 }
