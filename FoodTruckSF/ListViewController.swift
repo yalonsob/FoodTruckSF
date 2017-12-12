@@ -56,7 +56,6 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
         self.appDelegate.searchString = searchText
         self.searchedFoodtrucks = SearchHelper.filterFoodtrucks(foodtrucks: self.foodtrucks, searchString: searchText)
         self.appDelegate.searchedFoodtrucks = self.searchedFoodtrucks
