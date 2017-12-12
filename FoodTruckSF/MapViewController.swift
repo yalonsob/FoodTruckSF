@@ -10,9 +10,16 @@ import UIKit
 
 class MapViewController: UIViewController {
     
+    var foodtrucks: [Foodtruck]!
+    @IBOutlet weak var label: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        self.foodtrucks = appDelegate.foodtrucks
+        
+        label.text = String(foodtrucks.count)
     }
     
 }

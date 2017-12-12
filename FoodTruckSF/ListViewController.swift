@@ -12,10 +12,12 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @IBOutlet weak var tableView: UITableView!
     
-    
-    var foodtrucks: [Foodtruck] = [Foodtruck]()
+    var foodtrucks: [Foodtruck]!
 
     override func viewDidLoad() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        self.foodtrucks = appDelegate.foodtrucks
+        
         let url = URL(string: "https://data.sfgov.org/resource/6a9r-agq8.json?status=APPROVED")!
         
         let task = URLSession.shared.dataTask(with: url) {
@@ -27,8 +29,8 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 return
             }
             
-            // Update the view controller's state
             self.foodtrucks = self.foodtrucksFromData(data)
+            appDelegate.foodtrucks = self.foodtrucks
             
             // Send the UI Updating work back to the main thread
             DispatchQueue.main.async {
