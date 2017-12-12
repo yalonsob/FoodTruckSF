@@ -15,7 +15,15 @@ class SearchHelper {
         if searchString == "" {
             return foodtrucks
         } else {
-            return [foodtrucks[0], foodtrucks[2]]
+            var searchedFoodtrucks = [Foodtruck]()
+            
+            for foodtruck in foodtrucks {
+                let name = foodtruck.company.lowercased()
+                if name.range(of: searchString.lowercased()) != nil {
+                    searchedFoodtrucks.append(foodtruck)
+                }
+            }
+            return searchedFoodtrucks
         }
     }
 }
