@@ -10,14 +10,24 @@ import UIKit
 
 class MapViewController: UIViewController {
     
-    var foodtrucks: [Foodtruck]!
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var label: UILabel!
+    
+    var appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var foodtrucks: [Foodtruck]!
+    var searchString: String!
+    var searchedFoodtrucks: [Foodtruck]!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        self.foodtrucks = appDelegate.foodtrucks
+        //searchBar.text = self.searchString
+        self.foodtrucks = self.appDelegate.foodtrucks
+        self.searchString = self.appDelegate.searchString
+        self.searchedFoodtrucks = self.appDelegate.searchedFoodtrucks
+        
+        searchBar.text = self.searchString
         
         label.text = String(foodtrucks.count)
     }

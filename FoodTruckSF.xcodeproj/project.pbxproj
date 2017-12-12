@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		232B68FD1FDF0F7900661A6E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232B68FC1FDF0F7900661A6E /* MapViewController.swift */; };
 		236E15D81FDF77AC0095A497 /* FoodtruckDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236E15D71FDF77AC0095A497 /* FoodtruckDetailViewController.swift */; };
+		236E15DA1FDF8DE20095A497 /* SearchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236E15D91FDF8DE20095A497 /* SearchHelper.swift */; };
 		23F27CB81FD118C900EAC191 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F27CB71FD118C900EAC191 /* AppDelegate.swift */; };
 		23F27CBA1FD118C900EAC191 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F27CB91FD118C900EAC191 /* ListViewController.swift */; };
 		23F27CBD1FD118C900EAC191 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23F27CBB1FD118C900EAC191 /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		232B68FC1FDF0F7900661A6E /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		236E15D71FDF77AC0095A497 /* FoodtruckDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodtruckDetailViewController.swift; sourceTree = "<group>"; };
+		236E15D91FDF8DE20095A497 /* SearchHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHelper.swift; sourceTree = "<group>"; };
 		23F27CB41FD118C900EAC191 /* FoodTruckSF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodTruckSF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23F27CB71FD118C900EAC191 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23F27CB91FD118C900EAC191 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				23F27CC01FD118C900EAC191 /* LaunchScreen.storyboard */,
 				23F27CC31FD118C900EAC191 /* Info.plist */,
 				23FC77AE1FDF1A5000CC664C /* Foodtruck.swift */,
+				236E15D91FDF8DE20095A497 /* SearchHelper.swift */,
 			);
 			path = FoodTruckSF;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 				23F27CB81FD118C900EAC191 /* AppDelegate.swift in Sources */,
 				23FC77AF1FDF1A5000CC664C /* Foodtruck.swift in Sources */,
 				236E15D81FDF77AC0095A497 /* FoodtruckDetailViewController.swift in Sources */,
+				236E15DA1FDF8DE20095A497 /* SearchHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

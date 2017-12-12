@@ -8,15 +8,24 @@
 
 import UIKit
 
-class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var foodtrucks: [Foodtruck]!
+    var searchString: String!
+    var searchedFoodtrucks: [Foodtruck]!
+    
+    var appDelegate = UIApplication.shared.delegate as! AppDelegate
 
     override func viewDidLoad() {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        self.foodtrucks = appDelegate.foodtrucks
+        
+        self.foodtrucks = self.appDelegate.foodtrucks
+        self.searchString = self.appDelegate.searchString
+        self.searchedFoodtrucks = self.appDelegate.searchedFoodtrucks
+        
+        searchBar.text = self.searchString
         
         let url = URL(string: "https://data.sfgov.org/resource/6a9r-agq8.json?status=APPROVED")!
         
@@ -30,7 +39,10 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
             }
             
             self.foodtrucks = self.foodtrucksFromData(data)
-            appDelegate.foodtrucks = self.foodtrucks
+            self.appDelegate.foodtrucks = self.foodtrucks
+            
+            self.searchedFoodtrucks = self.foodtrucks
+            self.appDelegate.searchedFoodtrucks = self.searchedFoodtrucks
             
             // Send the UI Updating work back to the main thread
             DispatchQueue.main.async {
@@ -40,15 +52,22 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         task.resume()
     }
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print(searchText)
+        self.appDelegate.searchString = searchText
+        
+        
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return foodtrucks.count
+        return searchedFoodtrucks.count
     }
     
     //var cellNumber = 0
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FoodtruckCell", for: indexPath) as! FoodTruckTableViewCell
-        let foodtruck = foodtrucks[indexPath.row]
+        let foodtruck = searchedFoodtrucks[indexPath.row]
         cell.company.text = foodtruck.company
         cell.address.text = foodtruck.address
         
@@ -88,7 +107,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let foodtruckDetailVC = segue.destination as! FoodtruckDetailViewController
         let indexPath = tableView.indexPathForSelectedRow!
-        foodtruckDetailVC.foodtruck = self.foodtrucks[indexPath.row]
+        foodtruckDetailVC.foodtruck = self.searchedFoodtrucks[indexPath.row]
     }
 
 }
