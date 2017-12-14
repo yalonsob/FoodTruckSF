@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class FoodtruckDetailViewController: UIViewController {
     
@@ -15,6 +16,7 @@ class FoodtruckDetailViewController: UIViewController {
     @IBOutlet weak var address: UILabel!
     @IBOutlet weak var schedule: UILabel!
     @IBOutlet weak var products: UITextView!
+    @IBOutlet weak var map: MKMapView!
     
     var foodtruck: Foodtruck!
     var favoriteFoodtrucks: FoodtruckStore!
@@ -33,6 +35,20 @@ class FoodtruckDetailViewController: UIViewController {
         
         favoriteButton.addTarget(self, action: #selector(toggleFavorite), for: .touchDown)
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        map.removeAnnotations(map.annotations)
+        let span: MKCoordinateSpan = MKCoordinateSpanMake(0.01, 0.01)
+        let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(foodtruck.latitude, foodtruck.longitude)
+        let region: MKCoordinateRegion = MKCoordinateRegionMake(location, span)
+        map.setRegion(region, animated: true)
+        
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = location
+        annotation.title = foodtruck.company
+        annotation.subtitle = foodtruck.dayshours
+        map.addAnnotation(annotation)
     }
     
     func setFavoriteButtonImage() {

@@ -167,20 +167,30 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="ProductsTextView" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="w2g-QY-UtC">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="ProductsTextView" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w2g-QY-UtC">
                                 <rect key="frame" x="11" y="253" width="348" height="121"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S8O-fZ-QWn">
                                 <rect key="frame" x="335" y="74" width="30" height="30"/>
                             </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="BUC-pk-31i">
+                                <rect key="frame" x="11" y="394" width="353" height="213"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="213" id="BbV-6e-oIo"/>
+                                    <constraint firstAttribute="width" constant="353" id="Lhv-Km-cDf"/>
+                                </constraints>
+                            </mapView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="pgq-Ue-Zve" firstAttribute="bottom" secondItem="BUC-pk-31i" secondAttribute="bottom" constant="11" id="9b7-gt-1fO"/>
+                            <constraint firstItem="BUC-pk-31i" firstAttribute="leading" secondItem="pgq-Ue-Zve" secondAttribute="leading" constant="11" id="ZDi-Ov-bVt"/>
                             <constraint firstItem="S8O-fZ-QWn" firstAttribute="top" secondItem="pgq-Ue-Zve" secondAttribute="top" constant="10" id="fkQ-EN-OIl"/>
+                            <constraint firstItem="pgq-Ue-Zve" firstAttribute="trailing" secondItem="BUC-pk-31i" secondAttribute="trailing" constant="11" id="kXV-13-baN"/>
                             <constraint firstItem="pgq-Ue-Zve" firstAttribute="trailing" secondItem="S8O-fZ-QWn" secondAttribute="trailing" constant="10" id="oi5-eJ-4FB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pgq-Ue-Zve"/>
@@ -189,6 +199,7 @@
                         <outlet property="address" destination="iVi-60-4Fu" id="xTV-oF-OiU"/>
                         <outlet property="company" destination="s6V-Sd-RK4" id="PyP-U5-h3f"/>
                         <outlet property="favoriteButton" destination="S8O-fZ-QWn" id="s69-hW-Fsp"/>
+                        <outlet property="map" destination="BUC-pk-31i" id="CTA-r9-e2m"/>
                         <outlet property="products" destination="w2g-QY-UtC" id="INq-uH-OAY"/>
                         <outlet property="schedule" destination="Qgl-Mr-7ZP" id="fDa-w2-Fbl"/>
                     </connections>
