@@ -16,8 +16,10 @@
 		233C658C1FE2F121009B3505 /* remove-favorite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 233C65861FE2F121009B3505 /* remove-favorite@2x.png */; };
 		233C658D1FE2F121009B3505 /* remove-favorite@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 233C65871FE2F121009B3505 /* remove-favorite@3x.png */; };
 		233C658F1FE2F4DF009B3505 /* FoodtruckStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233C658E1FE2F4DF009B3505 /* FoodtruckStore.swift */; };
+		233C65911FE30AEA009B3505 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233C65901FE30AEA009B3505 /* FavoritesViewController.swift */; };
 		236E15D81FDF77AC0095A497 /* FoodtruckDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236E15D71FDF77AC0095A497 /* FoodtruckDetailViewController.swift */; };
 		236E15DA1FDF8DE20095A497 /* SearchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236E15D91FDF8DE20095A497 /* SearchHelper.swift */; };
+		23DA55F61FE313F2001AC527 /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DA55F51FE313F2001AC527 /* FavoriteTableViewCell.swift */; };
 		23F27CB81FD118C900EAC191 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F27CB71FD118C900EAC191 /* AppDelegate.swift */; };
 		23F27CBA1FD118C900EAC191 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F27CB91FD118C900EAC191 /* ListViewController.swift */; };
 		23F27CBD1FD118C900EAC191 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23F27CBB1FD118C900EAC191 /* Main.storyboard */; };
@@ -43,8 +45,10 @@
 		233C65861FE2F121009B3505 /* remove-favorite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "remove-favorite@2x.png"; sourceTree = "<group>"; };
 		233C65871FE2F121009B3505 /* remove-favorite@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "remove-favorite@3x.png"; sourceTree = "<group>"; };
 		233C658E1FE2F4DF009B3505 /* FoodtruckStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodtruckStore.swift; sourceTree = "<group>"; };
+		233C65901FE30AEA009B3505 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		236E15D71FDF77AC0095A497 /* FoodtruckDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodtruckDetailViewController.swift; sourceTree = "<group>"; };
 		236E15D91FDF8DE20095A497 /* SearchHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHelper.swift; sourceTree = "<group>"; };
+		23DA55F51FE313F2001AC527 /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
 		23F27CB41FD118C900EAC191 /* FoodTruckSF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodTruckSF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23F27CB71FD118C900EAC191 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23F27CB91FD118C900EAC191 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +130,8 @@
 				23FC77AE1FDF1A5000CC664C /* Foodtruck.swift */,
 				236E15D91FDF8DE20095A497 /* SearchHelper.swift */,
 				233C658E1FE2F4DF009B3505 /* FoodtruckStore.swift */,
+				233C65901FE30AEA009B3505 /* FavoritesViewController.swift */,
+				23DA55F51FE313F2001AC527 /* FavoriteTableViewCell.swift */,
 			);
 			path = FoodTruckSF;
 			sourceTree = "<group>";
@@ -215,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				23F27CBA1FD118C900EAC191 /* ListViewController.swift in Sources */,
+				233C65911FE30AEA009B3505 /* FavoritesViewController.swift in Sources */,
 				23FC77B11FDF285900CC664C /* FoodtruckTableViewCell.swift in Sources */,
 				232B68FD1FDF0F7900661A6E /* MapViewController.swift in Sources */,
 				23F27CB81FD118C900EAC191 /* AppDelegate.swift in Sources */,
@@ -222,6 +229,7 @@
 				233C658F1FE2F4DF009B3505 /* FoodtruckStore.swift in Sources */,
 				236E15D81FDF77AC0095A497 /* FoodtruckDetailViewController.swift in Sources */,
 				236E15DA1FDF8DE20095A497 /* SearchHelper.swift in Sources */,
+				23DA55F61FE313F2001AC527 /* FavoriteTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
