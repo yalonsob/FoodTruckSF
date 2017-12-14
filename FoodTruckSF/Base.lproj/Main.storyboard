@@ -174,13 +174,21 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S8O-fZ-QWn">
+                                <rect key="frame" x="335" y="74" width="30" height="30"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="S8O-fZ-QWn" firstAttribute="top" secondItem="pgq-Ue-Zve" secondAttribute="top" constant="10" id="fkQ-EN-OIl"/>
+                            <constraint firstItem="pgq-Ue-Zve" firstAttribute="trailing" secondItem="S8O-fZ-QWn" secondAttribute="trailing" constant="10" id="oi5-eJ-4FB"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="pgq-Ue-Zve"/>
                     </view>
                     <connections>
                         <outlet property="address" destination="iVi-60-4Fu" id="xTV-oF-OiU"/>
                         <outlet property="company" destination="s6V-Sd-RK4" id="PyP-U5-h3f"/>
+                        <outlet property="favoriteButton" destination="S8O-fZ-QWn" id="s69-hW-Fsp"/>
                         <outlet property="products" destination="w2g-QY-UtC" id="INq-uH-OAY"/>
                         <outlet property="schedule" destination="Qgl-Mr-7ZP" id="fDa-w2-Fbl"/>
                     </connections>

@@ -89,7 +89,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let JSONObject = try! JSONSerialization.jsonObject(with: data)
         
         // Insist that this object must be a dictionary
-        guard let dictionaries = JSONObject as? [[String : AnyObject]] else {
+        guard let dictionaries = JSONObject as? [[String : Any]] else {
             assertionFailure("Failed to parse data. data.length: \(data.count)")
             return [Foodtruck]()
         }

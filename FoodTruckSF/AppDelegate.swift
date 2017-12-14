@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var foodtrucks: [Foodtruck] = [Foodtruck]()
     var searchString: String = ""
     var searchedFoodtrucks: [Foodtruck] = [Foodtruck]()
+    var favoriteFoodtrucks = FoodtruckStore("favorites")
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

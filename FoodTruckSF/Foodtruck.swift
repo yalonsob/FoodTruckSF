@@ -18,7 +18,7 @@ class Foodtruck {
     var longitude: Double
     
     // Init from a dictionary.
-    init?(dictionary: [String : AnyObject]) {
+    init?(dictionary: [String : Any]) {
         
         
         // Mandatory values
@@ -31,6 +31,11 @@ class Foodtruck {
                 return nil
         }
         
+        //let address = dictionary["address"] as? String ?? ""
+        //let company = dictionary["applicant"] as? String ?? ""
+        //let latitude = (dictionary["latitude"] as? NSString)?.doubleValue ?? 0
+        //let longitude = (dictionary["longitude"] as? NSString)?.doubleValue ?? 0
+        
         let dayshours = dictionary["dayshours"] as? String ?? ""
         let fooditems = dictionary["fooditems"] as? String ?? ""
         
@@ -41,6 +46,19 @@ class Foodtruck {
         self.fooditems = fooditems
         self.latitude = latitude
         self.longitude = longitude
+    }
+    
+    var dictionary: [String : Any] {
+        var f = [String : Any]()
+        
+        f["address"] = address
+        f["applicant"] = company
+        f["latitude"] = latitude.description
+        f["longitude"] = longitude.description
+        f["dayshours"] = dayshours
+        f["fooditems"] = fooditems
+        
+        return f
     }
 }
 
