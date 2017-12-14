@@ -38,5 +38,10 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let foodtruckDetailVC = segue.destination as! FoodtruckDetailViewController
+        let indexPath = tableView.indexPathForSelectedRow!
+        foodtruckDetailVC.foodtruck = self.favoriteFoodtrucks.foodtrucks[indexPath.row]
+    }
     
 }
